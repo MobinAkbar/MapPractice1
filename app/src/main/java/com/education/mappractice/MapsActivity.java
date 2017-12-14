@@ -1,6 +1,7 @@
 package com.education.mappractice;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -51,6 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final LatLng latlng=new LatLng(31.5770,74.3552);
     private static final LatLng latlng1=new LatLng(31.5755,74.3807);
     private TextView textView;
+   private Button button;
 
 
     @Override
@@ -59,6 +61,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_maps);
 
         textView=(TextView)findViewById(R.id.tv_lat);
+        button=(Button)findViewById(R.id.nextt);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MapsActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapi);
